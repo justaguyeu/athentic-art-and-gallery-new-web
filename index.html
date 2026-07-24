@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentic Art &amp; Gallery — Screen Printing, Apparel, Packaging &amp; More</title>
+  <meta name="description"
+    content="Authentic Art and Gallery — screen printing experts. T-shirts, packaging, signage, tire covers, print, design, websites, software, and original art.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/testimonials.css">
+  <link rel="stylesheet" href="css/halisi.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>try { if (localStorage.getItem('aag-theme') !== 'dark') { document.documentElement.classList.add('light-mode'); } } catch (e) { }</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html">
+      <img src="images/logoa.png" alt="">
+    </a>
+    <nav class="nav-links">
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn active" data-theme="dark">Dark</button>
+        <button class="theme-btn" data-theme="light">Light</button>
+      </div>
+    </div>
+    <div class="nav-social">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" />
+      </svg>
+      <a href="https://www.instagram.com/authenticartandgallery/" target="_blank" rel="noopener"><span
+          class="ig-text">@authenticartandgallery</span></a>
+    </div>
+    <button class="nav-burger" id="burgerBtn" aria-label="Open menu"><span></span></button>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="close-row"><button id="closeDrawer">&times;</button></div>
+    <nav>
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn " data-theme="dark">Dark</button>
+        <button class="theme-btn active" data-theme="light">Light</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <img class="bg-photo bg-cover" src="images/hero-bg.jpg" alt="">
+    <div class="hero-ghost-word"><span data-i18n="home_ghost_word">Create With,</span></div>
+    <div class="wrap hero-main">
+      <!-- <img class="hero-title reveal" src="images/logop.png" alt=""> -->
+      <h1 class="hero-title reveal">Authentic <br>Art &amp; Gallery</h1>
+      <div class="hero-cta-row reveal">
+        <a class="btn accent-btn" href="services.html"><span data-i18n="btn_get_quote">Get a Quote</span></a>
+      </div>
+    </div>
+    <div class="wrap hero-strip reveal">
+      <div>
+        <div class="label-sm"><span data-i18n="footer_heading">Get updates from Authentic Art &amp; Gallery</span></div>
+      </div>
+      <p><span data-i18n="footer_sub">New drops, print specials, and behind-the-scenes from the studio — straight to
+          your inbox.</span></p>
+      <form class="signup-row" onsubmit="return handleSignup(event)">
+        <input type="email" data-i18n-ph="newsletter_email_ph" placeholder="Your email..." required>
+        <button type="submit"><span data-i18n="btn_signup">Signup</span></button>
+      </form>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <section class="runband">
+    <img class="bg-photo bg-cover" src="images/mission-bg.jpg" alt="">
+    <div class="wrap runband-inner">
+      <div class="stack reveal">
+        <p class="ghost"><span data-i18n="home_ghost_line1">One Studio, Every</span></p>
+        <p class="ghost"><span data-i18n="home_ghost_line2">Surface</span></p>
+        <h2 class="solid">Creation <span class="script"> Beyond</span> Thinking </h2>
+      </div>
+
+    </div>
+    <div class="next-run-pill reveal">
+      <div>
+        <div class="tag"><span data-i18n="home_pill_tag">Most Requested</span></div>
+        <div class="date"><span data-i18n="svc-screen-printing-name">Screen Printing &amp; Apparel</span></div>
+      </div>
+      <a class="btn small" href="services/screen-printing.html"><span data-i18n="btn_get_quote">Get a Quote</span></a>
+    </div>
+  </section>
+
+  <section class="uniting" id="services">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span data-i18n="home_featured_eyebrow">Featured Services</span></div>
+      <h2 class="reveal"
+        style="font-family:var(--f-display);font-weight:700;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-0.03em;">
+        <span data-i18n="home_featured_heading">Three ways we bring ideas to life.</span>
+      </h2>
+      <div class="teaser-grid reveal-stagger">
+        <a class="teaser-card" href="services/screen-printing.html">
+          <img class="bg-photo bg-cover" src="images/services/screen-printing-hero.jpg" alt="Screen Printing & Apparel">
+          <div class="content">
+            <div class="tag">10,000/-</div>
+            <h3><span data-i18n="svc-screen-printing-name">Screen Printing &amp; Apparel</span></h3>
+            <span class="arrow-link"><span data-i18n="btn_view_service_details">View Service Details</span> <svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="teaser-card" href="services/packaging-bags.html">
+          <img class="bg-photo bg-cover" src="images/services/packaging-hero.jpg" alt="Packaging & Branded Bags">
+          <div class="content">
+            <div class="tag">30,000/-</div>
+            <h3><span data-i18n="svc-packaging-bags-name">Packaging &amp; Branded Bags</span></h3>
+            <span class="arrow-link"><span data-i18n="btn_view_service_details">View Service Details</span> <svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="teaser-card" href="services/design-services.html">
+          <img class="bg-photo bg-cover" src="images/services/web-software-hero.jpg" alt="Design Services">
+          <div class="content">
+            <div class="tag"><span data-i18n="label_on_request">On Request</span></div>
+            <h3><span data-i18n="svc-design-services-name">Design Services</span></h3>
+            <span class="arrow-link"><span data-i18n="btn_view_service_details">View Service Details</span> <svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg></span>
+          </div>
+        </a>
+      </div>
+      <div class="teaser-cta-row reveal">
+        <a class="btn ghost-btn" href="services.html"><span data-i18n="btn_see_all_services">See All Services</span></a>
+      </div>
+      <div class="download-banner reveal">
+        <div class="db-content">
+          <h3><span data-i18n="dl_pricelist_heading">Download Our Full Price List</span></h3>
+          <p><span data-i18n="dl_pricelist_sub">Get a complete PDF of all our services, products, and pricing details.</span></p>
+        </div>
+        <a href="AUTHENTIC%20ART%20AND%20GALLERY%20PRICE%20LIST.pdf" class="btn accent-btn" download>
+          <i class="fas fa-file-pdf"></i> <span data-i18n="btn_download_pdf">Download PDF</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="testi-head reveal">
+        <h2><span data-i18n="testi_heading_default">What Clients Say</span></h2>
+        <p><span data-i18n="testi_sub_default">Real feedback from the businesses and collectors we print, design, and
+            build for.</span></p>
+      </div>
+      <div class="testi-grid reveal-stagger">
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote"><span data-i18n="testi-0-quote">Ordered 300 branded handle bags and they matched our
+              logo colours exactly. Fast, clean, no back-and-forth.</span></p>
+          <div class="testi-person">
+            <img src="images/testimonials/testimonial-1.jpg" alt="Grace M.">
+            <div class="who"><b>Grace M.</b><span><span data-i18n="testi-0-role">Retail Boutique Owner</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote"><span data-i18n="testi-1-quote">Their banners and signage have covered three of our
+              expos now. Colours still look sharp after a full rainy season.</span></p>
+          <div class="testi-person">
+            <img src="images/testimonials/testimonial-2.jpg" alt="Kelvin O.">
+            <div class="who"><b>Kelvin O.</b><span><span data-i18n="testi-1-role">Events Company</span></span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote"><span data-i18n="testi-2-quote">I only needed 12 t-shirts for a team retreat and they
+              still gave it the same attention as a bulk order.</span></p>
+          <div class="testi-person">
+            <img src="images/testimonials/testimonial-3.jpg" alt="Fatuma R.">
+            <div class="who"><b>Fatuma R.</b><span><span data-i18n="testi-2-role">Small Business Owner</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote"><span data-i18n="testi-3-quote">Custom wheel covers for our whole delivery fleet —
+              durable, consistent, and delivered ahead of schedule.</span></p>
+          <div class="testi-person">
+            <img src="images/testimonials/testimonial-4.jpg" alt="James P.">
+            <div class="who"><b>James P.</b><span><span data-i18n="testi-3-role">Fleet Manager</span></span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote"><span data-i18n="testi-4-quote">Bought a canvas print with the wooden frame option
+              straight from their gallery page. Beautifully finished.</span></p>
+          <div class="testi-person">
+            <img src="images/testimonials/testimonial-5.jpg" alt="Neema T.">
+            <div class="who"><b>Neema T.</b><span><span data-i18n="testi-4-role">Art Collector</span></span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote"><span data-i18n="testi-5-quote">They built our brand identity and website after
+              printing our launch merch. Having one team handle both was genuinely easier.</span></p>
+          <div class="testi-person">
+            <img src="images/testimonials/testimonial-6.jpg" alt="Brian K.">
+            <div class="who"><b>Brian K.</b><span><span data-i18n="testi-5-role">Startup Founder</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= HALISI BRAND PARTNER SECTION ========= -->
+  <section class="halisi-section" id="halisi">
+   
+    <div class="wrap">
+      <div class="halisi-inner reveal">
+        <!-- <div class="halisi-badge reveal"><span data-i18n="halisi_badge">Partner Brand</span></div> -->
+        <div class="halisi-logo-wrap reveal" aria-hidden="true">
+          <img class="halisi-logo-mark" src="images/halisi%20logo.svg" alt="Halisi Logo">
+        </div>
+        <h2 class="halisi-title"><span data-i18n="halisi_heading">Meet <span class="halisi-accent">Halisi</span></span>
+        </h2>
+        <!-- <p class="halisi-sub reveal"><span data-i18n="halisi_sub">Premium streetwear built on authenticity. T-shirts, hoodies, caps and more — each piece designed for those who wear their identity with pride.</span></p>
+      <ul class="halisi-tags reveal-stagger">
+        <li><span data-i18n="halisi_tag1">T-Shirts</span></li>
+        <li><span data-i18n="halisi_tag2">Hoodies</span></li>
+        <li><span data-i18n="halisi_tag3">Caps</span></li>
+        <li><span data-i18n="halisi_tag4">Streetwear</span></li>
+        <li><span data-i18n="halisi_tag5">Limited Drops</span></li>
+      </ul> -->
+        <a class="btn halisi-btn reveal" href="https://halisistore.netlify.app/" target="_blank"
+          rel="noopener noreferrer" id="halisiShopBtn">
+          <span data-i18n="halisi_cta">Visit Store</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div>
+          <h4><span data-i18n="footer_heading">Get updates from Authentic Art &amp; Gallery</span></h4>
+          <p><span data-i18n="footer_sub">New drops, print specials, and behind-the-scenes from the studio — straight to
+              your inbox.</span></p>
+        </div>
+        <p><span data-i18n="footer_services_line">Screen Printing · Apparel · Packaging · Signage · Tire Covers · Promo
+            Items · Print · Design · Web &amp; Software · Original Art</span></p>
+        <form class="signup-row" onsubmit="return handleSignup(event)">
+          <input type="email" data-i18n-ph="newsletter_email_ph" placeholder="Your email..." required>
+          <button type="submit"><span data-i18n="btn_signup">Signup</span></button>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026, Authentic Art &amp; Gallery</span>
+        <div class="footer-links">
+          <a href="https://www.instagram.com/authenticartandgallery/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:authenticartandgallry@gmail.com" aria-label="Email"><i class="far fa-envelope"></i></a>
+          <a href="tel:+255756414824" aria-label="Call"><i class="fas fa-phone-alt"></i></a>
+          <span><span data-i18n="footer_address">Arusha, Tanzania</span></span>
+        </div>
+        <span><span data-i18n="footer_credits">Site Credits with <span class="script"> JUSTAGUY</span></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <a href="https://wa.me/255756414824?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" class="wa-float"
+    target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i> <span data-i18n="btn_get_quote">Get a Quote</span>
+  </a>
+</body>
+
+</html>
+

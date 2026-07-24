@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Authentic Art &amp; Gallery</title>
+  <meta name="description" content="Original art, canvas prints, and studio merch from Authentic Art &amp; Gallery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/shop.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>try { if (localStorage.getItem('aag-theme') !== 'dark') { document.documentElement.classList.add('light-mode'); } } catch (e) { }</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html">
+      <img src="images/logoa.png" alt="">
+    </a>
+    <nav class="nav-links">
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html" class="active"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn active" data-theme="dark">Dark</button>
+        <button class="theme-btn" data-theme="light">Light</button>
+      </div>
+    </div>
+    <div class="nav-social">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" />
+      </svg>
+      <a href="https://www.instagram.com/authenticartandgallery/" target="_blank" rel="noopener"><span
+          class="ig-text">@authenticartandgallery</span></a>
+    </div>
+    <button class="nav-burger" id="burgerBtn" aria-label="Open menu"><span></span></button>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="close-row"><button id="closeDrawer">&times;</button></div>
+    <nav>
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn active" data-theme="dark">Dark</button>
+        <button class="theme-btn" data-theme="light">Light</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="shop-hero">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span data-i18n="shop_eyebrow">Gallery &amp; Prints</span></div>
+      <h1 class="reveal"><span data-i18n="shop_h1">Art <span class="script">worth</span> printing.</span></h1>
+      <p class="reveal"><span data-i18n="shop_sub">Original pieces and studio quality prints, sold straight from the
+          gallery that also runs our print floor so every canvas ships with the same care as a client order.</span>
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="shop-feature reveal">
+        <div class="card feat-product">
+          <div class="name">Canvas Print (1m&sup2;)</div>
+          <div class="price">TZS 50,000</div>
+          <div class="stage">
+            <img src="images/products/product-canvas.jpg" alt="Canvas Print">
+            <span class="badge"><span data-i18n="shop_badge_bestseller">Bestseller</span></span>
+          </div>
+        </div>
+        <div class="cat-card">
+          <img src="images/products/product-category.jpg" alt="Gallery prints category">
+          <div class="content">
+            <div class="eyebrow-sm"><span data-i18n="shop_popular_categories">Popular Categories</span></div>
+            <h3>Gallery Prints</h3>
+            <a class="btn" href="#products"><span data-i18n="btn_shop_prints">Shop Prints</span></a>
+          </div>
+          <div class="cat-nav">
+            <button aria-label="prev">&larr;</button>
+            <button aria-label="next">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-row reveal-stagger" id="products">
+        <div class="product-card">
+          <div class="name">Canvas with Wooden Frame (1m&sup2;)</div>
+          <div class="price">TZS 65,000</div>
+          <div class="stage"><img src="images/products/product-print.jpg" alt="Canvas with Wooden Frame"></div>
+        </div>
+        <div class="product-card">
+          <div class="name">Custom T-Shirt</div>
+          <div class="price">TZS 12,000</div>
+          <div class="stage"><img src="images/products/product-tshirt.jpg" alt="Custom T-Shirt"></div>
+        </div>
+        <div class="product-card">
+          <div class="name">Branded Mug</div>
+          <div class="price">TZS 15,000</div>
+          <div class="stage"><img src="images/products/product-mug.jpg" alt="Branded Mug"></div>
+        </div>
+        <div class="product-card">
+          <div class="name">Magic Mug (Colour-Change)</div>
+          <div class="price">TZS 20,000</div>
+          <div class="stage"><img src="images/products/product-tote.jpg" alt="Magic Mug"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gear-quote">
+    <div class="wrap">
+      <div class="gear-photos reveal">
+        <img src="images/gear-1.jpg" alt="Ink and squeegee detail">
+        <img src="images/gear-2.jpg" alt="Framed canvas print">
+      </div>
+      <p class="q reveal"><span data-i18n="shop_gear_quote">May every piece we print or paint carry the same
+          authenticity, whether it's on a t-shirt, a wall, or a screen.</span></p>
+      <div class="gear-sig reveal">
+        <img style="width: auto; height: 90px;" src="images/logoa.png" alt="">
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div>
+          <h4><span data-i18n="footer_heading">Get updates from Authentic Art &amp; Gallery</span></h4>
+          <p><span data-i18n="footer_sub">New drops, print specials, and behind-the-scenes from the studio — straight to
+              your inbox.</span></p>
+        </div>
+        <p><span data-i18n="footer_services_line">Screen Printing · Apparel · Packaging · Signage · Tire Covers · Promo
+            Items · Print · Design · Web &amp; Software · Original Art</span></p>
+        <form class="signup-row" onsubmit="return handleSignup(event)">
+          <input type="email" data-i18n-ph="newsletter_email_ph" placeholder="Your email..." required>
+          <button type="submit"><span data-i18n="btn_signup">Signup</span></button>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026, Authentic Art &amp; Gallery</span>
+        <div class="footer-links">
+
+          <span><span data-i18n="footer_address">Arusha, Tanzania</span></span>
+        </div>
+        <span><span data-i18n="footer_credits">Site Credits</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <a href="https://wa.me/255756414824?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" class="wa-float"
+    target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i> <span data-i18n="btn_get_quote">Get a Quote</span>
+  </a>
+</body>
+
+</html>
+

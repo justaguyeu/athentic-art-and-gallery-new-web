@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Authentic Art &amp; Gallery</title>
+  <meta name="description" content="Every print tells a story — the mission behind Authentic Art &amp; Gallery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>try { if (localStorage.getItem('aag-theme') !== 'dark') { document.documentElement.classList.add('light-mode'); } } catch (e) { }</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html">
+      <img src="images/logoa.png" alt="">
+    </a>
+    <nav class="nav-links">
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html" class="active"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn active" data-theme="dark">Dark</button>
+        <button class="theme-btn" data-theme="light">Light</button>
+      </div>
+    </div>
+    <div class="nav-social">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" />
+      </svg>
+      <a href="https://www.instagram.com/authenticartandgallery/" target="_blank" rel="noopener"><span
+          class="ig-text">@authenticartandgallery</span></a>
+    </div>
+    <button class="nav-burger" id="burgerBtn" aria-label="Open menu"><span></span></button>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="close-row"><button id="closeDrawer">&times;</button></div>
+    <nav>
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn active" data-theme="dark">Dark</button>
+        <button class="theme-btn" data-theme="light">Light</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="about-hero">
+    <div class="wrap about-grid">
+      <div class="label-col reveal"><span data-i18n="about_eyebrow">What We Stand For</span></div>
+      <div class="statement reveal"><span data-i18n="about_mission">Every print tells a story. We started as a screen
+          printing shop and grew into a studio that prints apparel, packaging, signage, and tire covers, designs brands
+          and builds websites and software, and sells the original art that inspires all of it. So, what will it carry
+          today — <span class="script">'just a print' or something Authentic?</span></span></div>
+    </div>
+    <div class="wrap">
+      <div class="about-photos reveal">
+        <div class="photo-block a"><img src="images/mission-1.jpg" alt="Screen printing in progress"></div>
+        <div class="photo-block b">
+          <img src="images/mission-2.jpg" alt="Finished apparel rack">
+          <div class="find-run-cta">
+            <span><span data-i18n="about_cta_line">Have a project in mind?</span></span>
+            <a class="btn small" href="services.html"><span data-i18n="btn_get_quote">Get a Quote</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow reveal"><span data-i18n="about_eyebrow">What We Stand For</span></div>
+      <h2 class="reveal"
+        style="font-family:var(--f-display);font-weight:700;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-0.03em;">
+        <span data-i18n="about_heading">Authentic, on every surface.</span>
+      </h2>
+      <div class="values-grid reveal-stagger">
+        <div class="value-card">
+          <div class="num">01</div>
+          <h3><span data-i18n="value1_title">Quality craftsmanship</span></h3>
+          <p><span data-i18n="value1_desc">From ink density on a t-shirt to code quality on a website — we hold every
+              medium to the same standard.</span></p>
+        </div>
+        <div class="value-card">
+          <div class="num">02</div>
+          <h3><span data-i18n="value2_title">Built to order</span></h3>
+          <p><span data-i18n="value2_desc">One tee or a thousand, one banner or a full brand identity — every order gets
+              the same attention to detail.</span></p>
+        </div>
+        <div class="value-card">
+          <div class="num">03</div>
+          <h3><span data-i18n="value3_title">Authentic, always</span></h3>
+          <p><span data-i18n="value3_desc">We print what you actually asked for, design what you actually need, and sell
+              art we'd hang ourselves.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div>
+          <h4><span data-i18n="footer_heading">Get updates from Authentic Art &amp; Gallery</span></h4>
+          <p><span data-i18n="footer_sub">New drops, print specials, and behind-the-scenes from the studio — straight to
+              your inbox.</span></p>
+        </div>
+        <p><span data-i18n="footer_services_line">Screen Printing · Apparel · Packaging · Signage · Tire Covers · Promo
+            Items · Print · Design · Web &amp; Software · Original Art</span></p>
+        <form class="signup-row" onsubmit="return handleSignup(event)">
+          <input type="email" data-i18n-ph="newsletter_email_ph" placeholder="Your email..." required>
+          <button type="submit"><span data-i18n="btn_signup">Signup</span></button>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026, Authentic Art &amp; Gallery</span>
+        <div class="footer-links">
+
+          <span><span data-i18n="footer_address">Arusha, Tanzania</span></span>
+        </div>
+        <span><span data-i18n="footer_credits">Site Credits</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <a href="https://wa.me/255756414824?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" class="wa-float"
+    target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i> <span data-i18n="btn_get_quote">Get a Quote</span>
+  </a>
+</body>
+
+</html>
+

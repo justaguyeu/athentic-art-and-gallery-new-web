@@ -1,0 +1,44 @@
+/* ============ TESTIMONIALS ============ */
+.testimonials{ border-top:1px solid var(--line); }
+.testi-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:50px; }
+.testi-head h2{ font-family:var(--f-display); font-size:clamp(2rem,4.4vw,3.2rem); font-weight:700; letter-spacing:-0.03em; }
+.testi-head p{ color:var(--ink-dim); max-width:380px; font-size:.95rem; line-height:1.55; }
+
+.testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.testi-card{
+  background:var(--bg); padding:36px 32px;
+  display:flex; flex-direction:column; gap:22px;
+  transition: background .4s var(--ease), box-shadow .4s var(--ease), transform .4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.testi-card::before{
+  content:'';
+  position:absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color .4s var(--ease);
+}
+.testi-card:hover{ background:var(--bg-raised); box-shadow: 0 0 36px rgba(var(--accent-rgb),.06); }
+.testi-card:hover::before{ border-color: rgba(var(--accent-rgb),.25); }
+.testi-quote{
+  font-family:var(--f-display); font-size:1.08rem; font-weight:500;
+  line-height:1.55; letter-spacing:-0.01em;
+}
+.testi-quote::before{
+  content:'\201C';
+  color:var(--accent); font-family:var(--f-script); font-size:1.6em; margin-right:2px;
+  display:inline-block;
+  transition: transform .3s var(--ease);
+}
+.testi-card:hover .testi-quote::before{ transform: scale(1.18) rotate(-6deg); }
+.testi-person{ display:flex; align-items:center; gap:14px; margin-top:auto; }
+.testi-person img{ width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid var(--line-strong); transition: border-color .3s; }
+.testi-card:hover .testi-person img{ border-color: rgba(var(--accent-rgb),.5); }
+.testi-person .who b{ display:block; font-size:.92rem; font-weight:700; }
+.testi-person .who span{ font-size:.78rem; color:var(--ink-dim); }
+.testi-stars{ color:var(--accent); font-size:.85rem; letter-spacing:2px; }
+
+@media (max-width:980px){ .testi-grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:620px){ .testi-grid{ grid-template-columns:1fr;} }

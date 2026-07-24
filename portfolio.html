@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Authentic Art &amp; Gallery</title>
+  <meta name="description"
+    content="Recent print, packaging, signage, tire cover, design, and software projects from Authentic Art &amp; Gallery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>try { if (localStorage.getItem('aag-theme') !== 'dark') { document.documentElement.classList.add('light-mode'); } } catch (e) { }</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html">
+      <img src="images/logoa.png" alt="">
+    </a>
+    <nav class="nav-links">
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html" class="active"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn active" data-theme="dark">Dark</button>
+        <button class="theme-btn" data-theme="light">Light</button>
+      </div>
+    </div>
+    <div class="nav-social">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" />
+      </svg>
+      <a href="https://www.instagram.com/authenticartandgallery/" target="_blank" rel="noopener"><span
+          class="ig-text">@authenticartandgallery</span></a>
+    </div>
+    <button class="nav-burger" id="burgerBtn" aria-label="Open menu"><span></span></button>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="close-row"><button id="closeDrawer">&times;</button></div>
+    <nav>
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="portfolio.html"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="shop.html"><span data-i18n="nav_shop">Shop</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="history.html"><span data-i18n="nav_history">History</span></a>
+    </nav>
+    <div class="switches">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sw">SW</button>
+      </div>
+      <div class="theme-switch">
+        <button class="theme-btn active" data-theme="dark">Dark</button>
+        <button class="theme-btn" data-theme="light">Light</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="calendar-hero">
+    <img class="bg-photo bg-cover" src="images/portfolio-bg.jpg" alt="">
+    <div class="wrap">
+      <h1 class="reveal"><span data-i18n="portfolio_h1">Portfolio</span></h1>
+      <p class="reveal"><span data-i18n="portfolio_sub">A running log of what's left the studio recently — from single
+          t-shirts to full fleets, brand identities, and websites.</span></p>
+    </div>
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Retail Launch Tees</h4><span class="d">July 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Fatuma Boutique</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-screen-printing-name">Screen Printing &amp; Apparel</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/screen-printing.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Fleet Wheel Branding</h4><span class="d">June 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Kelvin Logistics</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-tire-covers-name">Wheel &amp; Tire Covers</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/tire-covers.html"><span data-i18n="btn_view_service">View Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Expo Banner Set</h4><span class="d">May 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Neema Events Co.</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-signage-banners-name">Signage &amp; Banners</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/signage-banners.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Takeaway Box Redesign</h4><span class="d">April 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Brian's Kitchen</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-packaging-bags-name">Packaging &amp; Branded Bags</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/packaging-bags.html"><span data-i18n="btn_view_service">View Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Corporate Gift Mugs</h4><span class="d">March 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Grace Studio</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-promo-items-name">Promotional Items</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/promo-items.html"><span data-i18n="btn_view_service">View Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Brand Identity & Logo</h4><span class="d">Feb 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">James Fleet Rentals</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-design-services-name">Design Services</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/design-services.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Retail Launch Tees</h4><span class="d">July 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Fatuma Boutique</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-screen-printing-name">Screen Printing &amp; Apparel</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/screen-printing.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Fleet Wheel Branding</h4><span class="d">June 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Kelvin Logistics</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-tire-covers-name">Wheel &amp; Tire Covers</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/tire-covers.html"><span data-i18n="btn_view_service">View Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Expo Banner Set</h4><span class="d">May 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Neema Events Co.</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-signage-banners-name">Signage &amp; Banners</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/signage-banners.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Takeaway Box Redesign</h4><span class="d">April 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Brian's Kitchen</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-packaging-bags-name">Packaging &amp; Branded Bags</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/packaging-bags.html"><span data-i18n="btn_view_service">View Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Corporate Gift Mugs</h4><span class="d">March 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">Grace Studio</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-promo-items-name">Promotional Items</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/promo-items.html"><span data-i18n="btn_view_service">View Service</span></a>
+        </div>
+        <div class="cal-item">
+          <div class="city-row">
+            <h4>Brand Identity & Logo</h4><span class="d">Feb 2026</span>
+          </div>
+          <div class="meta-row">
+            <div>
+              <div class="k"><span data-i18n="label_client">Client</span></div>
+              <div class="v">James Fleet Rentals</div>
+            </div>
+            <div>
+              <div class="k"><span data-i18n="label_service">Service</span></div>
+              <div class="v"><span data-i18n="svc-design-services-name">Design Services</span></div>
+            </div>
+          </div>
+          <a class="view" href="services/design-services.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span data-i18n="portfolio_eyebrow">Recent Work</span></div>
+      <h2 class="reveal"
+        style="font-family:var(--f-display);font-weight:700;font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.03em;">
+        <span data-i18n="portfolio_heading">Every project, in order.</span>
+      </h2>
+      <div class="schedule-list reveal-stagger">
+        <div class="schedule-row">
+          <div class="sr-date">July 2026</div>
+          <div class="sr-city">Retail Launch Tees</div>
+          <div class="sr-addr">Fatuma Boutique &middot; 120 pcs</div>
+          <div class="sr-dist"><span data-i18n="svc-screen-printing-name">Screen Printing &amp; Apparel</span></div>
+          <a class="btn small sr-btn" href="services/screen-printing.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="schedule-row">
+          <div class="sr-date">June 2026</div>
+          <div class="sr-city">Fleet Wheel Branding</div>
+          <div class="sr-addr">Kelvin Logistics &middot; 34 vehicles</div>
+          <div class="sr-dist"><span data-i18n="svc-tire-covers-name">Wheel &amp; Tire Covers</span></div>
+          <a class="btn small sr-btn" href="services/tire-covers.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="schedule-row">
+          <div class="sr-date">May 2026</div>
+          <div class="sr-city">Expo Banner Set</div>
+          <div class="sr-addr">Neema Events Co. &middot; 6 banners</div>
+          <div class="sr-dist"><span data-i18n="svc-signage-banners-name">Signage &amp; Banners</span></div>
+          <a class="btn small sr-btn" href="services/signage-banners.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="schedule-row">
+          <div class="sr-date">April 2026</div>
+          <div class="sr-city">Takeaway Box Redesign</div>
+          <div class="sr-addr">Brian's Kitchen &middot; 2,000 units</div>
+          <div class="sr-dist"><span data-i18n="svc-packaging-bags-name">Packaging &amp; Branded Bags</span></div>
+          <a class="btn small sr-btn" href="services/packaging-bags.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="schedule-row">
+          <div class="sr-date">March 2026</div>
+          <div class="sr-city">Corporate Gift Mugs</div>
+          <div class="sr-addr">Grace Studio &middot; 300 pcs</div>
+          <div class="sr-dist"><span data-i18n="svc-promo-items-name">Promotional Items</span></div>
+          <a class="btn small sr-btn" href="services/promo-items.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+        <div class="schedule-row">
+          <div class="sr-date">Feb 2026</div>
+          <div class="sr-city">Brand Identity & Logo</div>
+          <div class="sr-addr">James Fleet Rentals &middot; 1 brand system</div>
+          <div class="sr-dist"><span data-i18n="svc-design-services-name">Design Services</span></div>
+          <a class="btn small sr-btn" href="services/design-services.html"><span data-i18n="btn_view_service">View
+              Service</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top reveal">
+        <div>
+          <h4><span data-i18n="footer_heading">Get updates from Authentic Art &amp; Gallery</span></h4>
+          <p><span data-i18n="footer_sub">New drops, print specials, and behind-the-scenes from the studio — straight to
+              your inbox.</span></p>
+        </div>
+        <p><span data-i18n="footer_services_line">Screen Printing · Apparel · Packaging · Signage · Tire Covers · Promo
+            Items · Print · Design · Web &amp; Software · Original Art</span></p>
+        <form class="signup-row" onsubmit="return handleSignup(event)">
+          <input type="email" data-i18n-ph="newsletter_email_ph" placeholder="Your email..." required>
+          <button type="submit"><span data-i18n="btn_signup">Signup</span></button>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026, Authentic Art &amp; Gallery</span>
+        <div class="footer-links">
+
+          <span><span data-i18n="footer_address">Arusha, Tanzania</span></span>
+        </div>
+        <span><span data-i18n="footer_credits">Site Credits</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <a href="https://wa.me/255756414824?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" class="wa-float"
+    target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i> <span data-i18n="btn_get_quote">Get a Quote</span>
+  </a>
+</body>
+
+</html>
+
