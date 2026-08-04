@@ -248,6 +248,26 @@ window.I18N = {
     en: "Authentic, on every surface.",
     sw: "Halisi, kwenye kila uso.",
   },
+  brandstory_eyebrow: {
+    en: "Our Philosophy",
+    sw: "Falsafa Yetu",
+  },
+  brandstory_heading: {
+    en: "The Living Canvas of Originality",
+    sw: "Kiwambo Hai cha Ubunifu",
+  },
+  brandstory_p1: {
+    en: "True art does not merely occupy space; it alters it. Authentic Art and Gallery exists at the precise intersection where raw creative intuition meets refined visual structure. We believe that extraordinary design is hidden within the ordinary texture of daily life, waiting to be extracted, elevated, and preserved.",
+    sw: "Sanaa halisi haitumii nafasi tu; huibadilisha. Authentic Art and Gallery ipo katika kiungo hasa ambapo hisia ghafi za ubunifu hukutana na muundo bora wa kuona. Tunaamini kuwa muundo wa kipekee umejificha ndani ya mambo ya kawaida ya maisha ya kila siku, ukisubiri kutolewa, kuinuliwa, na kuhifadhiwa.",
+  },
+  brandstory_p2: {
+    en: "Our work is rooted in a philosophy of rigorous customization and uncompromising originality. We do not manufacture trends; we construct visual identities and timeless gallery pieces that serve as architectural blueprints for emotion. Every layout, color choice, and custom canvas is executed with a singular intent: to capture raw authenticity and translate it into a striking, soul-stirring experience.",
+    sw: "Kazi yetu inatokana na falsafa ya ubinafsishaji wa kina na uhalisia usioyumbishwa. Hatutengenezi mitindo ya muda; tunajenga vitambulisho vya kuona na kazi za sanaa za kudumu zinazotumika kama ramani za kihisia. Kila mpangilio, uchaguzi wa rangi, na kiwambo maalum hutekelezwa kwa nia moja: kunasa uhalisia ghafi na kuubadilisha kuwa hisia inayogusa roho.",
+  },
+  brandstory_p3: {
+    en: "At Authentic Art and Gallery, creation is a deliberate act of translation. We transform conceptual thought into high-impact visual realities, ensuring that every project stands as a testament to the transformative power of genuine art.",
+    sw: "Katika Authentic Art and Gallery, uumbaji ni kitendo cha makusudi cha kutafsiri. Tunabadilisha mawazo ya dhana kuwa hali halisi za kuona zenye athari kubwa, tukihakikisha kila mradi unasimama kama ushahidi wa uwezo wa kubadilisha wa sanaa halisi.",
+  },
   value1_title: {
     en: "Quality craftsmanship",
     sw: "Ustadi wa Hali ya Juu",

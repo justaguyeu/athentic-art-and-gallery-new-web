@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
 
 /* ============ TOKENS ============ */
 /* Brand colors sampled from Authentic Art & Gallery's 2026 price list / logo */
 :root{
-  --bg: #0a0a0b;
-  --bg-rgb: 10,10,11;
-  --bg-raised: #131315;
+  --bg: #344650;             /* primary brand color — main backgrounds & structural elements */
+  --bg-rgb: 52,70,80;
+  --bg-raised: #3f5561;
   --ink: #f5f4f2;
   --ink-rgb: 245,244,242;
-  --ink-dim: #8d8d92;
-  --ghost: #1c1c1f;
-  --accent: #e8792a;        /* brand orange, from logo + price-list headers */
-  --accent-rgb: 232,121,42;
-  --accent-dim: #5c3512;
-  --navy: #29343d;           /* brand dark navy, from logo mark + headline text */
+  --ink-dim: #b7c1c6;
+  --ghost: #40545f;
+  --accent: #F58429;        /* brand orange — buttons, highlights, logos, frames */
+  --accent-rgb: 245,132,41;
+  --accent-dim: #7a4114;
+  --navy: #344650;           /* brand primary, from logo mark + headline text */
   --line: rgba(245,244,242,0.09);
   --line-strong: rgba(245,244,242,0.18);
 
-  --f-display: 'Space Grotesk', 'Manrope', sans-serif;
-  --f-logo: 'Playfair Display', serif;
-  --f-body: 'Manrope', sans-serif;
-  --f-script: 'Caveat', cursive;
+  --f-display: 'Raleway', sans-serif;
+  --f-logo: 'Raleway', sans-serif;
+  --f-body: 'Raleway', sans-serif;
+  --f-script: 'Raleway', sans-serif;
 
   --container: 1320px;
   --pad: clamp(20px, 4vw, 64px);
@@ -192,12 +192,12 @@ html.light-mode{
   --bg: #f7f5f0;
   --bg-rgb: 247,245,240;
   --bg-raised: #ece8e1;
-  --ink: #191a1c;
-  --ink-rgb: 25,26,28;
-  --ink-dim: #63636a;
+  --ink: #344650;
+  --ink-rgb: 52,70,80;
+  --ink-dim: #5c6f79;
   --ghost: #e4e0d8;
-  --line: rgba(25,26,28,0.10);
-  --line-strong: rgba(25,26,28,0.20);
+  --line: rgba(52,70,80,0.12);
+  --line-strong: rgba(52,70,80,0.22);
 }
 
 .nav-burger{ display:none; width:34px; height:34px; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; }
@@ -255,7 +255,7 @@ html.light-mode{
 .btn.accent-btn{ background:var(--accent); border-color:var(--accent); color:#100604; }
 .btn.small{ padding:12px 22px; }
 
-.script{ font-family:var(--f-body); font-weight:600; color:var(--accent); }
+.script{ font-family:var(--f-body); font-weight:600; font-style:italic; color:var(--accent); }
 
 /* ============ GHOST-STACK HEADLINE (signature element) ============ */
 .stack{ position:relative; }

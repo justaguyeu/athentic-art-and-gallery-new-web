@@ -28,7 +28,7 @@
 }
 .testi-quote::before{
   content:'\201C';
-  color:var(--accent); font-family:var(--f-script); font-size:1.6em; margin-right:2px;
+  color:var(--accent); font-family:var(--f-script); font-style:italic; font-size:1.6em; margin-right:2px;
   display:inline-block;
   transition: transform .3s var(--ease);
 }

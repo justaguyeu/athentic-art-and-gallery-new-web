@@ -61,7 +61,7 @@
 .runband .ghost{ font-size:clamp(2.4rem, 6.2vw, 5rem); }
 .runband .solid{ font-size:clamp(2.6rem, 7vw, 5.6rem); }
 .quote-sig{ margin-top:44px; display:flex; align-items:center; gap:18px; }
-.quote-sig .mark{ font-family:var(--f-script); font-size:2.1rem; color:var(--ink); }
+.quote-sig .mark{ font-family:var(--f-script); font-style:italic; font-size:2.1rem; color:var(--ink); }
 .quote-sig .who{ font-size:.85rem; color:var(--ink-dim); line-height:1.4; }
 .quote-sig .who b{ color:var(--ink); display:block; font-weight:700; }
 .next-run-pill{

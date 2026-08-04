@@ -34,7 +34,7 @@
 .city-card .tag{ font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-dim); font-weight:700; z-index:2; }
 .city-card .date{ font-size:1.6rem; font-weight:700; font-family:var(--f-display); margin:8px 0 26px; z-index:2; }
 .city-card h3{ font-family:var(--f-display); font-size:clamp(2rem,3.6vw,2.7rem); font-weight:700; letter-spacing:-0.02em; margin:0; z-index:2; }
-.city-card .join{ font-family:var(--f-script); color:var(--accent); font-size:1.4rem; margin-top:10px; z-index:2; }
+.city-card .join{ font-family:var(--f-script); font-style:italic; color:var(--accent); font-size:1.4rem; margin-top:10px; z-index:2; }
 .city-meta{ display:flex; gap:24px; margin-top:auto; padding-top:30px; width:100%; justify-content:center; z-index:2; }
 .city-meta div{ text-align:left; }
 .city-meta .k{ font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim); font-weight:700; }
