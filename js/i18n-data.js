@@ -730,8 +730,8 @@ window.I18N = {
     sw: "Chapa Mshirika",
   },
   halisi_heading: {
-    en: "Meet Halisi",
-    sw: "Karibu Halisi",
+    en: "Meet ",
+    sw: "Karibu ",
   },
   halisi_sub: {
     en: "Premium streetwear built on authenticity. T-shirts, hoodies, caps and more — each piece designed for those who wear their identity with pride.",
@@ -758,7 +758,7 @@ window.I18N = {
     sw: "Matoleo Machache",
   },
   halisi_cta: {
-    en: "Shop Halisi Store",
+    en: "Visit Store",
     sw: "Tembelea Duka la Halisi",
   },
 };
