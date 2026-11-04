@@ -1,94 +1,166 @@
+"""Generate labelled placeholder images for every image slot on the site.
+
+Each placeholder shows its file name, exact pixel size, aspect ratio, where it
+is used and what the real photo should show. Export your real image at the same
+size, save it over the placeholder with the same name, and the site picks it up.
+
+Real photos already in place are listed in KEEP and never overwritten.
+
+Run:  python build/gen_images.py
+"""
 from PIL import Image, ImageDraw, ImageFont
-import os, random
-random.seed(11)
+from math import gcd
+import os
 
-OUT = "/home/claude/authentic-art-and-gallery/images"
+OUT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "images"))
 
-def grad(w,h,c1,c2):
-    img = Image.new("RGB",(w,h),c1)
+# Already real photos - never overwrite these.
+KEEP = {"hero-bg.jpg", "mission-bg.jpg"}
+
+DARK = (10, 10, 11)
+ACCENT = (232, 121, 42)
+INK = (245, 244, 242)
+DIM = (141, 141, 146)
+
+FONT_BOLD = ["C:/Windows/Fonts/segoeuib.ttf", "C:/Windows/Fonts/arialbd.ttf",
+             "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "/Library/Fonts/Arial Bold.ttf"]
+FONT_REG = ["C:/Windows/Fonts/segoeui.ttf", "C:/Windows/Fonts/arial.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "/Library/Fonts/Arial.ttf"]
+
+
+def font(paths, size):
+    for p in paths:
+        if os.path.exists(p):
+            return ImageFont.truetype(p, size)
+    return ImageFont.load_default(size=size)
+
+
+def ratio(w, h):
+    g = gcd(w, h)
+    return f"{w // g}:{h // g}"
+
+
+def grad(w, h, c1, c2):
+    img = Image.new("RGB", (w, h), c1)
     draw = ImageDraw.Draw(img)
     for y in range(h):
-        t = y/h
-        r = int(c1[0]+(c2[0]-c1[0])*t)
-        g = int(c1[1]+(c2[1]-c1[1])*t)
-        b = int(c1[2]+(c2[2]-c1[2])*t)
-        draw.line([(0,y),(w,y)], fill=(r,g,b))
+        t = y / h
+        draw.line([(0, y), (w, y)], fill=tuple(int(a + (b - a) * t) for a, b in zip(c1, c2)))
     return img
 
-def label(img, text, sub=""):
-    draw = ImageDraw.Draw(img)
-    w,h = img.size
-    try:
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", size=max(16,w//24))
-        font_sm = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", size=max(11,w//48))
-    except Exception:
-        font = ImageFont.load_default(); font_sm = font
-    bbox = draw.textbbox((0,0), text, font=font)
-    tw, th = bbox[2]-bbox[0], bbox[3]-bbox[1]
-    draw.text(((w-tw)/2, (h-th)/2 - 10), text, font=font, fill=(245,244,242))
-    if sub:
-        bbox2 = draw.textbbox((0,0), sub, font=font_sm)
-        sw, sh = bbox2[2]-bbox2[0], bbox2[3]-bbox2[1]
-        draw.text(((w-sw)/2, (h-th)/2 + th + 6), sub, font=font_sm, fill=(141,141,146))
-    draw.rectangle([0,0,w-1,h-1], outline=(232,121,42), width=3)
-    return img
 
-def make(name, w, h, c1, c2, title, sub="Replace with real photo"):
-    img = grad(w,h,c1,c2)
-    label(img, title, sub)
+def guides(draw, w, h):
+    # faint grid + corner-to-corner cross so crop/focal area is easy to judge
+    step = max(40, min(w, h) // 10)
+    for x in range(0, w, step):
+        draw.line([(x, 0), (x, h)], fill=(255, 255, 255, 10))
+    for y in range(0, h, step):
+        draw.line([(0, y), (w, y)], fill=(255, 255, 255, 10))
+    draw.line([(0, 0), (w, h)], fill=(255, 255, 255, 18), width=2)
+    draw.line([(w, 0), (0, h)], fill=(255, 255, 255, 18), width=2)
+
+
+def centered(draw, w, y, text, f, fill):
+    bw = draw.textbbox((0, 0), text, font=f)[2]
+    draw.text(((w - bw) / 2, y), text, font=f, fill=fill)
+    b = draw.textbbox((0, 0), text, font=f)
+    return b[3] - b[1]
+
+
+def make(name, w, h, tint, usage, subject):
+    if os.path.basename(name) in KEEP:
+        print("keep   ", name)
+        return
+    img = grad(w, h, tint, DARK).convert("RGBA")
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(layer)
+    guides(draw, w, h)
+
+    s = min(w, h)
+    f_name = font(FONT_BOLD, max(18, s // 16))
+    f_dim = font(FONT_BOLD, max(16, s // 11))
+    f_sm = font(FONT_REG, max(12, s // 34))
+
+    # panel behind the text
+    pw, ph = int(w * 0.84), int(s * 0.52)
+    px, py = (w - pw) // 2, (h - ph) // 2
+    draw.rectangle([px, py, px + pw, py + ph], fill=(10, 10, 11, 190), outline=(*ACCENT, 160), width=2)
+
+    y = py + ph * 0.17
+    y += centered(draw, w, y, f"{w} \u00d7 {h}", f_dim, ACCENT) + s * 0.04
+    y += centered(draw, w, y, os.path.basename(name), f_name, INK) + s * 0.05
+    y += centered(draw, w, y, f"{ratio(w, h)}  \u00b7  {usage}", f_sm, DIM) + s * 0.025
+    centered(draw, w, y, subject, f_sm, DIM)
+
+    draw.rectangle([0, 0, w - 1, h - 1], outline=ACCENT, width=4)
+    out = Image.alpha_composite(img, layer).convert("RGB")
     path = os.path.join(OUT, name)
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    img.save(path, quality=85)
-    print("saved", path)
+    out.save(path, quality=88)
+    print("saved  ", name, f"{w}x{h}")
 
-DARK = (10,10,11)
 
-make("hero-bg.jpg", 1600, 900, (30,16,14), DARK, "HERO BG", "Print shop / screen printing action shot")
-make("mission-bg.jpg", 1600, 900, (34,20,16), DARK, "MISSION BG", "Close-up of ink press in motion")
-make("portfolio-bg.jpg", 1600, 900, (26,20,14), DARK, "PORTFOLIO BG", "Finished print products flat-lay")
-make("history-bg.jpg", 1600, 900, (16,16,20), DARK, "HISTORY BG", "Founders / original shop photo")
-make("mission-1.jpg", 900, 1125, (40,40,44), DARK, "STUDIO PHOTO 1", "Screen printing in progress")
-make("mission-2.jpg", 900, 1125, (28,28,32), DARK, "STUDIO PHOTO 2", "Finished apparel rack")
-make("gear-1.jpg", 900, 600, (34,34,36), DARK, "CRAFT PHOTO 1", "Ink & squeegee close-up")
-make("gear-2.jpg", 900, 600, (22,26,42), DARK, "CRAFT PHOTO 2", "Framed art / canvas print")
+# (file, width, height, tint, where it's used, what the real photo should show)
+IMAGES = [
+    # Full-bleed page backgrounds - 16:9
+    ("hero-bg.jpg", 1920, 1080, (30, 16, 14), "Home hero background", "Print shop / screen printing action shot"),
+    ("mission-bg.jpg", 1920, 1080, (34, 20, 16), "Home mission background", "Printed banner / work on location"),
+    ("history-bg.jpg", 1920, 1080, (16, 16, 20), "History page hero", "Founders / original shop photo"),
+    ("portfolio-bg.jpg", 1920, 1080, (26, 20, 14), "Portfolio page hero", "Finished print products flat-lay"),
 
-products = [
-    ("product-canvas.jpg", 800, 1000, (26,38,58), "CANVAS PRINT"),
-    ("product-category.jpg", 1200, 900, (30,30,32), "GALLERY PRINTS"),
-    ("product-tote.jpg", 700, 900, (24,24,26), "CUSTOM TOTE BAG"),
-    ("product-mug.jpg", 700, 900, (22,26,42), "BRANDED MUG"),
-    ("product-print.jpg", 700, 900, (22,30,48), "A3 ART PRINT"),
-    ("product-tshirt.jpg", 700, 900, (34,34,34), "CUSTOM TEE"),
+    # About page photo blocks - 4:5 portrait
+    ("about-studio-1.jpg", 1000, 1250, (40, 40, 44), "About page photo block A", "Screen printing in progress"),
+    ("about-studio-2.jpg", 1000, 1250, (28, 28, 32), "About page photo block B", "Finished apparel rack"),
+
+    # Shop page gear strip - 3:2
+    ("shop-gear-1.jpg", 1200, 800, (34, 34, 36), "Shop gear strip (left)", "Ink & squeegee close-up"),
+    ("shop-gear-2.jpg", 1200, 800, (22, 26, 42), "Shop gear strip (right)", "Framed canvas print"),
+
+    # Shop featured blocks
+    ("products/product-canvas.jpg", 1000, 1000, (26, 38, 58), "Shop featured product", "Canvas print (1m\u00b2), bestseller"),
+    ("products/product-category.jpg", 1600, 1000, (30, 30, 32), "Shop 'Gallery Prints' category card", "Wall of gallery prints"),
+
+    # Shop product cards - 3:4 portrait
+    ("products/product-canvas-framed.jpg", 900, 1200, (22, 30, 48), "Shop product card", "Canvas with wooden frame"),
+    ("products/product-tshirt.jpg", 900, 1200, (34, 34, 34), "Shop product card", "Custom printed T-shirt"),
+    ("products/product-mug.jpg", 900, 1200, (22, 26, 42), "Shop product card", "Branded mug"),
+    ("products/product-magic-mug.jpg", 900, 1200, (40, 26, 40), "Shop product card", "Magic (colour-change) mug"),
+
+    # Service heroes - 16:9, used on services.html, home cards and each service page
+    ("services/screen-printing-hero.jpg", 1920, 1080, (30, 18, 16), "Screen Printing & Apparel", "Screen printing press / printed apparel"),
+    ("services/packaging-bags-hero.jpg", 1920, 1080, (28, 22, 14), "Packaging & Branded Bags", "Branded bags & boxes"),
+    ("services/signage-banners-hero.jpg", 1920, 1080, (30, 16, 16), "Signage & Banners", "Banners, tents, roll-ups at an event"),
+    ("services/tire-covers-hero.jpg", 1920, 1080, (20, 20, 24), "Wheel & Tire Covers", "Branded spare-wheel cover on a vehicle"),
+    ("services/promo-items-hero.jpg", 1920, 1080, (22, 26, 42), "Promotional Items", "Mugs, pens, caps, keyrings with logos"),
+    ("services/print-stationery-hero.jpg", 1920, 1080, (18, 24, 30), "Print & Stationery", "Business cards, letterheads, flyers"),
+    ("services/design-services-hero.jpg", 1920, 1080, (32, 20, 30), "Design Services", "Designer at work / logo sketches"),
+    ("services/web-software-hero.jpg", 1920, 1080, (16, 20, 32), "Website & Software Development", "Laptop with website / code"),
 ]
-for fn,w,h,c,title in products:
-    make(f"products/{fn}", w, h, c, DARK, title, "Product photo")
 
-services = [
-    ("screen-printing-hero.jpg", (30,18,16), "SCREEN PRINTING"),
-    ("t-shirt-printing-hero.jpg", (18,24,30), "T-SHIRT PRINTING"),
-    ("packaging-hero.jpg", (28,22,14), "PACKAGING"),
-    ("wheel-covers-hero.jpg", (20,20,24), "WHEEL COVERS"),
-    ("tents-banners-hero.jpg", (30,16,16), "TENTS & BANNERS"),
-    ("web-software-hero.jpg", (16,20,32), "WEB & SOFTWARE"),
+# Testimonial avatars - square, shown small and round
+TESTIMONIALS = [
+    ("Grace M.", (60, 40, 40)), ("Kelvin O.", (40, 50, 60)), ("Fatuma R.", (55, 45, 30)),
+    ("James P.", (35, 45, 35)), ("Neema T.", (50, 35, 50)), ("Brian K.", (45, 45, 55)),
 ]
-for fn,c,title in services:
-    make(f"services/{fn}", 1600, 900, c, DARK, title, "Project / workspace photo")
 
-names = ["Grace M.", "Kelvin O.", "Fatuma R.", "James P.", "Neema T.", "Brian K."]
-colors = [(60,40,40),(40,50,60),(55,45,30),(35,45,35),(50,35,50),(45,45,55)]
-for i,(n,c) in enumerate(zip(names,colors), start=1):
-    img = grad(300,300,c,DARK)
+
+def make_avatar(i, person, tint, size=400):
+    img = grad(size, size, tint, DARK)
     draw = ImageDraw.Draw(img)
-    try:
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", size=64)
-    except Exception:
-        font = ImageFont.load_default()
-    initials = "".join([p[0] for p in n.split()[:2]])
-    bbox = draw.textbbox((0,0), initials, font=font)
-    tw,th = bbox[2]-bbox[0], bbox[3]-bbox[1]
-    draw.text(((300-tw)/2, (300-th)/2-10), initials, font=font, fill=(245,244,242))
-    draw.rectangle([0,0,299,299], outline=(232,121,42), width=3)
-    img.save(f"{OUT}/testimonials/testimonial-{i}.jpg", quality=85)
-    print("saved testimonial", i)
+    initials = "".join(p[0] for p in person.split()[:2])
+    centered(draw, size, size * 0.24, initials, font(FONT_BOLD, size // 4), INK)
+    centered(draw, size, size * 0.58, f"{size} \u00d7 {size}", font(FONT_BOLD, size // 14), ACCENT)
+    centered(draw, size, size * 0.70, f"testimonial-{i}.jpg", font(FONT_REG, size // 18), DIM)
+    draw.rectangle([0, 0, size - 1, size - 1], outline=ACCENT, width=4)
+    name = f"testimonials/testimonial-{i}.jpg"
+    os.makedirs(os.path.join(OUT, "testimonials"), exist_ok=True)
+    img.save(os.path.join(OUT, name), quality=88)
+    print("saved  ", name, f"{size}x{size}  ({person})")
 
-print("DONE")
+
+if __name__ == "__main__":
+    for args in IMAGES:
+        make(*args)
+    for i, (person, tint) in enumerate(TESTIMONIALS, start=1):
+        make_avatar(i, person, tint)
+    print("DONE")
