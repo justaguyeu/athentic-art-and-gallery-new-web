@@ -1,22 +1,57 @@
+/* =====================================================================
+   service-detail.css — fully responsive
+   Breakpoints: 1600+ (large) · 900+ (laptop/desktop zoom) · 960 (stack)
+                900 · 768 · 600 · 560 · 400 (small phones)
+   ===================================================================== */
+
+/* ============ HERO ============ */
 .run-hero{
-  position:relative; min-height:78vh; display:flex; flex-direction:column; justify-content:flex-end;
-  overflow:hidden; padding-top:150px;
+  --hero-zoom:1.3;                 /* desktop zoom: 1.2 subtle, 1.5 strong */
+  --hero-pos-x:center;             /* phone crop: 0% left … 100% right */
+  --hero-pos-y:center;
+  position:relative;
+  min-height:78vh;
+  min-height:78svh;                /* stable height on iPhone Safari toolbar */
+  display:flex; flex-direction:column; justify-content:flex-end;
+  overflow:hidden; isolation:isolate;
+  padding-top:150px;
 }
-.run-hero .bg-photo{ position:absolute; inset:0; opacity:.4; }
+
+/* Background image: always fills the hero, cropped never stretched */
+.run-hero .bg-photo,
+.run-hero img.bg-photo{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:var(--hero-pos-x) var(--hero-pos-y);
+  opacity:.4;
+  transform-origin:center 30%;
+  pointer-events:none;
+  user-select:none;
+}
+
 .run-hero::before{
   content:''; position:absolute; inset:0; z-index:1;
   background:linear-gradient(0deg, rgba(var(--bg-rgb),.98) 10%, rgba(var(--bg-rgb),.55) 55%, rgba(var(--bg-rgb),.25) 100%);
 }
 .run-hero .wrap{ position:relative; z-index:2; }
-.breadcrumb{ font-size:.82rem; color:var(--ink-dim); margin-bottom:26px; display:flex; align-items:center; gap:8px; }
+
+.breadcrumb{ font-size:.82rem; color:var(--ink-dim); margin-bottom:26px; display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
 .breadcrumb a:hover{ color:var(--ink); }
-.run-hero h1{ font-family:var(--f-display); font-weight:700; font-size:clamp(3.2rem,10vw,7.5rem); letter-spacing:-0.045em; line-height:.94; }
+
+.run-hero h1{
+  font-family:var(--f-display); font-weight:700;
+  font-size:clamp(2.6rem,10vw,7.5rem);
+  letter-spacing:-0.045em; line-height:.94;
+  overflow-wrap:break-word; word-break:break-word;
+}
 .run-hero .badges{ display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; }
 .run-badge{ border:1px solid var(--line-strong); padding:10px 18px; font-size:.82rem; font-weight:700; display:flex; align-items:center; gap:8px; }
 .run-badge .k{ color:var(--ink-dim); font-weight:600; }
 
 /* ============ DETAIL BODY ============ */
 .run-body{ display:grid; grid-template-columns:1.4fr .9fr; gap:70px; align-items:start; }
+.run-body > *{ min-width:0; }      /* lets grid children shrink, prevents sideways scroll */
 .run-body h2{ font-family:var(--f-display); font-size:clamp(1.6rem,3vw,2.2rem); font-weight:700; letter-spacing:-0.01em; margin-bottom:18px; }
 .run-body .lead{ font-size:1.08rem; line-height:1.7; color:var(--ink); }
 .run-body .lead + .lead{ margin-top:16px; color:var(--ink-dim); }
@@ -28,7 +63,7 @@
 
 /* sidebar info card */
 .info-card{ border:1px solid var(--line-strong); padding:34px; position:sticky; top:110px; }
-.info-row{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); font-size:.92rem; }
+.info-row{ display:flex; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--line); font-size:.92rem; }
 .info-row:first-child{ padding-top:0; }
 .info-row:last-of-type{ border-bottom:none; }
 .info-row .k{ color:var(--ink-dim); }
@@ -36,8 +71,6 @@
 .info-card .btn{ width:100%; justify-content:center; margin-top:22px; }
 .info-card .route-svg{ width:100%; height:160px; margin-top:22px; border:1px solid var(--line); background:var(--bg-raised); }
 .info-card .route-svg path{ fill:none; stroke:var(--accent); stroke-width:1.6; }
-
-@media (max-width:960px){ .run-body{ grid-template-columns:1fr; gap:44px; } .info-card{ position:static; } }
 
 /* ============ PRICE TABLE ============ */
 .price-table-wrap{ margin-top:10px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
@@ -48,16 +81,10 @@
 }
 .price-table thead th:last-child{ text-align:right; }
 .price-table tbody td{ padding:14px 14px 14px 0; border-bottom:1px solid var(--line); font-size:.92rem; }
-.price-table tbody td:last-child{ text-align:right; font-weight:700; font-family:var(--f-display); }
+.price-table tbody td:last-child{ text-align:right; font-weight:700; font-family:var(--f-display); white-space:nowrap; }
 .price-table tbody td.pt-product{ font-weight:700; }
 .price-table tbody tr:hover{ background:rgba(var(--ink-rgb),0.02); }
 .price-note{ margin-top:20px; font-size:.85rem; color:var(--ink-dim); border-left:2px solid var(--accent); padding-left:14px; }
-
-@media (max-width:560px){
-  .price-table{ min-width:440px; }
-  .price-table thead th{ font-size:.62rem; padding-right:10px; }
-  .price-table tbody td{ font-size:.85rem; padding:12px 10px 12px 0; }
-}
 
 /* ============ QUOTE-ONLY SERVICES (design / web & software) ============ */
 .quote-list{ list-style:none; padding:0; margin:22px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
@@ -67,16 +94,15 @@
 }
 .quote-list li::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
 .quote-banner{
-  margin-top:26px; border:1px dashed var(--line-strong); padding:22px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+  margin-top:26px; border:1px dashed var(--line-strong); padding:22px;
+  display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
 }
 .quote-banner p{ color:var(--ink-dim); font-size:.9rem; max-width:420px; }
 .contact-line{ margin-top:16px; font-size:.86rem; color:var(--ink-dim); }
 .contact-line a{ color:var(--ink); font-weight:700; }
 .contact-line a:hover{ color:var(--accent); }
 
-@media (max-width:600px){ .quote-list{ grid-template-columns:1fr; } }
-
-/* other runs teaser */
+/* ============ OTHER SERVICES TEASER ============ */
 .other-runs{ border-top:1px solid var(--line); }
 .other-runs .row{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
 .other-runs .oc{ background:var(--bg); padding:26px 24px; transition:background .3s var(--ease); }
@@ -85,5 +111,95 @@
 .other-runs .oc h4{ font-family:var(--f-display); font-size:1.4rem; font-weight:700; margin:8px 0 12px; }
 .other-runs .oc a{ font-size:.82rem; font-weight:700; color:var(--accent); }
 
-@media (max-width:900px){ .other-runs .row{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:560px){ .other-runs .row{ grid-template-columns:1fr; } }
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+
+/* ---- Laptops & desktops (900px+): zoom the landscape photo in ---- */
+@media (min-width:900px){
+  .run-hero .bg-photo,
+  .run-hero img.bg-photo{ transform:scale(var(--hero-zoom)); }
+}
+
+/* ---- Large / wide monitors (1600px+): less zoom, the hero is already wide ---- */
+@media (min-width:1600px){
+  .run-hero{ --hero-zoom:1.2; min-height:70vh; }
+}
+
+/* ---- Short laptop screens (landscape, low height) ---- */
+@media (min-width:900px) and (max-height:760px){
+  .run-hero{ min-height:88vh; padding-top:120px; }
+}
+
+/* ---- Tablets & below (960px): stack the body ---- */
+@media (max-width:960px){
+  .run-body{ grid-template-columns:1fr; gap:44px; }
+  .info-card{ position:static; }
+}
+
+/* ---- Under 900px: phones & portrait tablets (no zoom, photo just fills) ---- */
+@media (max-width:899px){
+  .run-hero{ padding-top:120px; }
+  .other-runs .row{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* ---- Large phones / small tablets (768px) ---- */
+@media (max-width:768px){
+  .run-hero{ min-height:72vh; min-height:72svh; padding-top:110px; }
+  .breadcrumb{ margin-bottom:20px; }
+  .run-body{ gap:36px; }
+  .info-card{ padding:26px; }
+}
+
+/* ---- Phones (600px) ---- */
+@media (max-width:600px){
+  .quote-list{ grid-template-columns:1fr; }
+  .quote-banner{ flex-direction:column; align-items:flex-start; }
+  .quote-banner .btn{ width:100%; justify-content:center; }
+}
+
+/* ---- Phones (560px) ---- */
+@media (max-width:560px){
+  .run-hero{ min-height:68vh; min-height:68svh; padding-top:100px; }
+  .run-hero .badges{ gap:10px; margin-top:20px; }
+  .run-badge{ padding:9px 14px; font-size:.78rem; }
+  .run-body .lead{ font-size:1rem; }
+  .info-card{ padding:22px; }
+  .info-row{ font-size:.88rem; padding:14px 0; }
+
+  .price-table{ min-width:440px; }
+  .price-table thead th{ font-size:.62rem; padding-right:10px; }
+  .price-table tbody td{ font-size:.85rem; padding:12px 10px 12px 0; }
+
+  .other-runs .row{ grid-template-columns:1fr; margin-top:28px; }
+  .other-runs .oc{ padding:22px 20px; }
+  .other-runs .oc h4{ font-size:1.25rem; }
+}
+
+/* ---- Small phones (iPhone SE, 360px and under) ---- */
+@media (max-width:400px){
+  .run-hero{ padding-top:90px; }
+  .run-hero h1{ font-size:clamp(2.2rem,12vw,2.8rem); }
+  .run-badge{ width:100%; }
+  .price-table{ min-width:400px; }
+}
+
+/* ---- Phones in landscape (short height): don't let the hero eat the screen ---- */
+@media (max-width:899px) and (orientation:landscape) and (max-height:500px){
+  .run-hero{ min-height:100vh; min-height:100svh; padding-top:80px; }
+  .run-hero h1{ font-size:clamp(2rem,7vw,3.2rem); }
+}
+
+/* ---- Notched phones: keep content out of the safe areas ---- */
+@supports (padding:max(0px)){
+  .run-hero .wrap{
+    padding-left:max(24px, env(safe-area-inset-left));
+    padding-right:max(24px, env(safe-area-inset-right));
+  }
+}
+
+/* ---- Respect reduced-motion preferences ---- */
+@media (prefers-reduced-motion:reduce){
+  .other-runs .oc{ transition:none; }
+}
